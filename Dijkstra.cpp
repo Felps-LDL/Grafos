@@ -1,5 +1,5 @@
 // Grupo 1
-// Djkstra
+// Dijkstra
 #include <bits/stdc++.h>
 #define optimize ios::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 #define endl '\n'
@@ -14,7 +14,7 @@ using namespace std;
 
 vector<pii> grafos[MAXN];
 
-vector<int> Djkstra(int origem)
+vector<int> Dijkstra(int origem)
 {
     vector<bool> visitados(MAXN, false);
     vector<int> distancia(MAXN, INTMAX);
@@ -81,7 +81,7 @@ int main()
     cout << "Valor: ";
     cin >> valor;
 
-    vector<int> distancias = Djkstra(valor);
+    vector<int> distancias = Dijkstra(valor);
 
     for (int i = 0; i <= 6; i++) cout << "Valor para " << i << ": " << distancias[i] << endl;
 
