@@ -17,6 +17,17 @@ vector<int> grafos[MAXN];
 vector<bool> visitados(MAXN, false);
 vector<int> caminho;
 
+// Caminho euleriano ou nao
+bool verify_euler()
+{
+    for (auto vertice : grafos)
+    {
+        if (!(vertice.empty())) return false;
+    }
+
+    return true;
+}
+
 // Remove a aresta
 void delEdge(int origem, int destino)
 {
@@ -105,18 +116,16 @@ int main()
     cout << "Valor: ";
     cin >> valor;
 
-    while(grafos[valor].size() % 2 == 0)
-    {
-        cout << "Digite um vertice impar: ";
-        cin >> valor;
-    }
-
     caminho.push_back(valor);
     euler(valor);
 
-
+    cout << "Caminho: ";
     for (auto elemento : caminho) cout << elemento << " -> ";
     cout << endl;
+
+    if (verify_euler()) cout << "Eh um caminho euleriano\n";
+    else cout << "Nao eh um caminho euleriano";
+
 
     return 0;
 }
